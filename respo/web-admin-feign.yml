@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: hello-spring-cloud-web-admin-feign
+server:
+  port: 7005
+
+feign:
+  hystrix:
+    enabled: tru
+
+eureka:
+ client:
+   service-url:
+     defaultZone: http://localhost:7001/eureka/
+

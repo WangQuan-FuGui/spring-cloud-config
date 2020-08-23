@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: itoken-zuul
+  zipkin:
+    base-url: http://localhost:7008
+  boot:
+    admin:
+      client:
+        url: http://localhost:7009
+server:
+  port: 7006
+
+eureka:
+ client:
+   service-url:
+     defaultZone: http://localhost:7001/eureka/
+
+zuul:
+  routes:
+    api-a:
+      path: /api/a/**
+      serviceId: hello-spring-cloud-web-admin-ribbon
+
+    api-b:
+      path: /api/b/**
+      serviceId: hello-spring-cloud-web-admin-feign

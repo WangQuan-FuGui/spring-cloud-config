@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: itoken-zuul
+
+  boot:
+    admin:
+      client:
+        url: http://localhost:7009
+server:
+  port: 7008
+
+eureka:
+ client:
+   service-url:
+     defaultZone: http://localhost:7001/eureka/
+
+
+management:
+  metrics:
+    web:
+      server:
+        auto-time-requests: false

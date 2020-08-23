@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: itoken-service-admin
+
+  zipkin:
+    base-url: http://localhost:7008
+
+  boot:
+    admin:
+      client:
+        url: http://localhost:7009
+server:
+  port: 7004
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: ["health","info"]
+
+
+  datasource:
+    druid:
+      url: jdbc:mysql://127.0.0.1:3306/itoken-service-admin?useUnicode=true&characterEncoding=utf-8&useSSL=false
+      username: root
+      password: 111111
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      test-on-borrow: true
+      driver-class-name: com.mysql.jdbc.Driver
+
+mybatis:
+  type-aliases-package: com.funtl.itoken.service.admin.domain
+  mapper-locations: classpath:mapper/*.xml

@@ -1,7 +1,20 @@
 spring:
   application:
     name: itoken-service-admin
+  datasource:
+    name: druidDataSource
+    type: com.alibaba.druid.pool.DruidDataSource
 
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/itoken-service-admin?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+      name: root
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      test-on-borrow: true
+      password: 111111
+      username: root
   zipkin:
     base-url: http://localhost:7008
 
@@ -23,23 +36,6 @@ management:
     web:
       exposure:
         include: ["health","info"]
-
-
-  datasource:
-    name: druidDataSource
-    type: com.alibaba.druid.pool.DruidDataSource
-
-    druid:
-      driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/itoken-service-admin?useUnicode=true&characterEncoding=UTF-8&useSSL=false
-      name: root
-      initial-size: 1
-      min-idle: 1
-      max-active: 20
-      test-on-borrow: true
-      password: 111111
-      username: root
-
 
 mybatis:
   type-aliases-package: com.funtl.itoken.service.admin.domain

@@ -1,6 +1,6 @@
 spring:
   application:
-    name: itoken-service-admin
+    name: itoken-service-sso
   datasource:
     name: druidDataSource
     type: com.alibaba.druid.pool.DruidDataSource
@@ -23,7 +23,12 @@ spring:
       client:
         url: http://localhost:7009
 server:
-  port: 8001
+  port: 8012
+
+feign:
+  hystrix:
+    enabled: true
+
 eureka:
   client:
     service-url:
